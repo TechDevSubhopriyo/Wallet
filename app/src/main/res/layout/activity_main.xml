@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/back">
+
+
+    <Button
+        android:id="@+id/A"
+        android:layout_width="131dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="72dp"
+        android:background="@null"
+        android:text="Transaction"
+        android:textColor="#EEFF41"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/V"
+        android:layout_width="108dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="56dp"
+        android:background="@null"
+        android:text="Passbook"
+        android:textColor="#EEFF41"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/A" />
+
+    <Button
+        android:id="@+id/R"
+        android:layout_width="115dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="56dp"
+        android:text="Reset"
+        android:background="@null"
+        android:textColor="#EEFF41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/V" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
