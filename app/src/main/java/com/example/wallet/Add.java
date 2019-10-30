@@ -109,6 +109,7 @@ public class Add extends AppCompatActivity {
                 }
             }
         }
+        Toast.makeText(this, "Saved",Toast.LENGTH_SHORT).show();
 
     }
 }
