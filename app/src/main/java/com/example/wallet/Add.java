@@ -2,6 +2,7 @@ package com.example.wallet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 public class Add extends AppCompatActivity {
 
@@ -28,7 +30,7 @@ public class Add extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_add);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         e1=findViewById(R.id.e1);
         e2=findViewById(R.id.e2);
         e3=findViewById(R.id.e3);
@@ -39,21 +41,17 @@ public class Add extends AppCompatActivity {
             public void onClick(View v) {
                 Date c1= Calendar.getInstance().getTime();
                 System.out.println("Current time => "+c1);
-                SimpleDateFormat df=new SimpleDateFormat("dd-MMM-YYY");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat df=new SimpleDateFormat("dd-MMM-YYY");
                 e="Debit"+"\n";
                 d="Date: "+df.format(c1)+"\n\n";
                 a="Rs."+e1.getText().toString()+"\n";
                 b="Gateway: "+e2.getText().toString()+"\n";
                 c="Purpose: "+e3.getText().toString()+"\n";
-                if(!a.equals("") && !b.equals("") && !c.equals(""))
+                if(!a.equals("") && !b.equals(""))
                 {
                     save();
                 }
-                else
-                {
 
-
-                }
             }
         });
         b1.setOnClickListener(new View.OnClickListener() {
