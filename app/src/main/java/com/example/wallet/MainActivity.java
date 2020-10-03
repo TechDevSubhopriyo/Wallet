@@ -1,8 +1,5 @@
 package com.example.wallet;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,26 +8,28 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import java.io.FileNotFoundException;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.FileOutputStream;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button a,v,r;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
-        a=findViewById(R.id.A);
-        v=findViewById(R.id.V);
-        r=findViewById(R.id.R);
+        Objects.requireNonNull(getSupportActionBar()).hide();
+        Button a = findViewById(R.id.A);
+        Button v = findViewById(R.id.V);
+        Button r = findViewById(R.id.R);
         a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Add.class);
+                Intent i = new Intent(MainActivity.this, Add.class);
                 startActivity(i);
             }
         });
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Passbook.class);
+                Intent i = new Intent(MainActivity.this, Passbook.class);
                 startActivity(i);
             }
         });
@@ -50,10 +49,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder alt=new AlertDialog.Builder(this);
-        alt.setTitle("Alet!")
+        AlertDialog.Builder alt = new AlertDialog.Builder(this);
+        alt.setTitle("Alert!")
                 .setCancelable(false)
                 .setMessage("Are you sure you want to quit")
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-        AlertDialog a=alt.create();
+        AlertDialog a = alt.create();
         a.show();
     }
-    public void Res()
-    {
-        AlertDialog.Builder alt=new AlertDialog.Builder(this);
+
+    public void Res() {
+        AlertDialog.Builder alt = new AlertDialog.Builder(this);
         alt.setTitle("Alet!")
                 .setCancelable(false)
                 .setMessage("Reset will Clear all saved data. Are you sure you want to Reset? ")
@@ -86,16 +86,16 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        FileOutputStream fos=null;
+                        FileOutputStream fos = null;
                         try {
-                            fos=openFileOutput("File",0);
+                            fos = openFileOutput("File", 0);
                             fos.write("".getBytes());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 });
-        AlertDialog a=alt.create();
+        AlertDialog a = alt.create();
         a.show();
     }
 }
