@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         AlertDialog.Builder alt = new AlertDialog.Builder(this);
-        alt.setTitle("Alet!")
+        alt.setTitle("Alert!")
                 .setCancelable(false)
                 .setMessage("Are you sure you want to quit")
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
